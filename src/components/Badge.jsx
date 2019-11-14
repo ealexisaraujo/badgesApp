@@ -8,7 +8,7 @@ class Badge extends React.Component {
     return (
       <div className='Badge'>
         <div className='Badge__header'>
-          <Logo alt='Logo de la conferencia' />
+          <img src={Logo} alt='Logo de la conferencia' />
         </div>
 
         <div className='Badge__section-name'>

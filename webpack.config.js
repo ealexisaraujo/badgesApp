@@ -27,15 +27,17 @@ module.exports = {
         },
       },
       {
-        test: /\.svg$/,
+        test: /\.(gif|png|jpe?g|svg)$/i,
         use: [
+          'file-loader',
           {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-svg-loader',
+            loader: 'image-webpack-loader',
             options: {
-              jsx: true, // true outputs JSX tags
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer,
+              webp: {
+                quality: 75,
+              },
             },
           },
         ],
