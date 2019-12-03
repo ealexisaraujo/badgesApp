@@ -1,43 +1,100 @@
 import React from 'react';
 
-const BadgeForm = () => {
-  const handleChange = event => {
-    console.log({
-      name: event.target.name,
-      value: event.target.value,
+class BadgeForm extends React.Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    jobTitle: '',
+    twitter: '',
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleClick = event => {
+  handleClick = event => {
     console.log('Button was clicked');
   };
 
-  const handleSubmit = event => {
+  handleSubmit = event => {
     event.preventDefault();
     console.log('Form was submitted');
+    console.log(this.state);
   };
 
-  return (
-    <div>
-      <h1>New Attendant</h1>
+  render() {
+    return (
+      <div>
+        <div>
+          <h1>New Attendant</h1>
 
-      <form onSubmit={handleSubmit}>
-        <div className='form-group'>
-          <label>First Name</label>
-          <input
-            onChange={handleChange}
-            className='form-control'
-            type='text'
-            name='firstName'
-          />
+          <form onSubmit={this.handleSubmit}>
+            <div className='form-group'>
+              <label>First Name</label>
+              <input
+                onChange={this.handleChange}
+                className='form-control'
+                type='text'
+                name='firstName'
+                value={this.state.firstName}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label>Last Name</label>
+              <input
+                onChange={this.handleChange}
+                className='form-control'
+                type='text'
+                name='lastName'
+                value={this.state.lastName}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label>Email</label>
+              <input
+                onChange={this.handleChange}
+                className='form-control'
+                type='email'
+                name='email'
+                value={this.state.email}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label>Job Title</label>
+              <input
+                onChange={this.handleChange}
+                className='form-control'
+                type='text'
+                name='jobTitle'
+                value={this.state.jobTitle}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label>Twitter</label>
+              <input
+                onChange={this.handleChange}
+                className='form-control'
+                type='text'
+                name='twitter'
+                value={this.state.twitter}
+              />
+            </div>
+
+            <button onClick={this.handleClick} className='btn btn-primary'>
+              Save
+            </button>
+          </form>
         </div>
-
-        <button onClick={handleClick} className='btn btn-primary'>
-          Save
-        </button>
-      </form>
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
 
 export default BadgeForm;
