@@ -13,7 +13,7 @@ class Badge extends React.Component {
       email,
     } = this.props;
     return (
-      <div className='Badge'>
+      <div className='Badges'>
         <div className='Badge__header'>
           <img src={Logo} alt='Logo de la conferencia' />
         </div>
