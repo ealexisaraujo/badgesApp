@@ -1,11 +1,10 @@
 import React from 'react';
-import stars from '../assets/images/stars.svg';
 import styled from 'styled-components';
+import stars from '../assets/images/stars.svg';
 import '../assets/styles/BadgeNew.scss';
 import HeaderBadge from '../assets/images/badge-header.svg';
 import Badge from '../components/Badge';
 import BadgeForm from '../components/BadgeForm';
-import Navbar from '../components/Navbar';
 
 const Content = styled.div`
   width: 100%;
@@ -38,8 +37,7 @@ class BadgeNew extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar />
+      <>
         <Content className='BadgeNew__hero'>
           <img src={HeaderBadge} className='img-fluid' alt='Logo' />
         </Content>
@@ -64,7 +62,7 @@ class BadgeNew extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
